@@ -152,6 +152,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-tomcat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/25/tomcat/">tomcat的搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2022/01/25/tomcat/" class="archive-article-date">
+  	<time datetime="2022-01-25T12:03:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Tomcat 的安装 在使用 tomcat 安装之前，需要下载 JDK 和 tomcat 的安装包。<br>JDK 下载网站： <a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/java8">https://www.oracle.com/java/technologies/downloads/java8</a><br>Tomcat 下载网站： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/li150dan/p/12535067.html">https://www.cnblogs.com/li150dan/p/12535067.html</a><br>（tomcat 为 gz 文件）</p>
+<p>第一步：环境的配置<br>首先安装JDK，安装jdk之前需要卸载当前系统预载的 openjava，命令为 yum remove openJava xxx ,因为 jdk 在官网下载的是一个二进制报文，解压之后不需要做什么操作， 只需要记住存放在那个目录即可，接着配置环境变量，vim /etc/profile。<br>unset i     #交互执行<br>unset -f pathmunge    #pathmunge是个函数<br>export JAVA_HOME=/usr/local/java/jdk1.8.0_221   #jdk放置目录<br>export JRE_HOME=${JAVA_HOME}/jre<br>export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib:$CLASSPATH<br>export JAVA_PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin:${CATALINA_HOME}/bin<br>export PATH=$PATH:${JAVA_PATH}:$PATH</p>
+<img src="/2022/01/25/tomcat/1.jpg" class>
+<p>配置完成后source /etc/profile</p>
+<p>卸载系统预载java</p>
+<img src="/2022/01/25/tomcat/2.jpg" class>
+<p>查看安装的java</p>
+<img src="/2022/01/25/tomcat/3.jpg" class>
+
+<p>第二步：安装 Tomcat</p>
+<p>首先解压 tomcat 的安装包，记住 tomcat 解压后的位置，之后配置环境变量，<br>vim /etc/profile<br>export CATALINA_HOME=/usr/local/tomcat #tomcat放置目录 (tomcat是解压后重命名后的文件夹，根据实际情况写)</p>
+<img src="/2022/01/25/tomcat/4.jpg" class>
+
+<p>同样，调用环境变量：source /etc/profile<br>这样，基本就已经安装完成了，接下来进入tomcat的bin目录，给./startup.sh执行权限</p>
+<img src="/2022/01/25/tomcat/5.jpg" class>
+<p>接着，启动！  ./startip.sh</p>
+<img src="/2022/01/25/tomcat/6.jpg" class>
+<p>在浏览器中输入：localhost:8080即可</p>
+<img src="/2022/01/25/tomcat/7.jpg" class>
+<p>若想更改登录域名或者端口可在tomcat目录中的conf目录下中找到server.xml修改即可</p>
+<img src="/2022/01/25/tomcat/8.jpg" class>
+<p>修改端口：</p>
+<img src="/2022/01/25/tomcat/9.jpg" class>
+<p>修改域名：</p>
+<img src="/2022/01/25/tomcat/10.jpg" class>
+
+<p>还有其他基本操作基本就是在server.xml文件中操作或者webapps上操作。</p>
+<p>END</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/01/25/tomcat/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-十八" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -245,7 +335,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我们在电视上，总是看见美洲荒原或者非洲荒原上动物大迁徙的宏大场面：它们不停地奔跑着，翻过一道道山，穿过一片片戈壁滩，游过一条条河流。其间，不时遭到猛兽的袭击与追捕，或摔死于山崖，或淹死于激流。然而，任何阻拦与艰险，都不能阻挡这声势浩大、撼动人心的迁徙。前方在召唤着它们，它们只有奋蹄挺进。其实，人类的祖先也在这迁徙中度过了漫长的光阴。<br>  外面有一个广大无边的世界。这个世界充满艰辛和危险，然而又丰富多彩，富有刺激性，它总在诱惑着人们走出家门。人会在闯荡世界之中获得生命的满足，所以人的内心总在呐喊：走啊走!<br>  人的眼中、心里，总有一个前方。前方的情景并不明确，朦胧如雾中之月，闪烁如水中之花。这种不确定性，反而助长了一些人对前方的幻想。前方使他们兴奋，使他们行动，使他们陷入如痴如醉的状态。<br>  他们仿佛从苍茫的前方，听到了呼唤他们往前的钟声和激动人心的鼓乐。他们不知疲倦地走着。<br>  因此，这世界上就有了路。为了快速地走向前方和能走向更远的地方，就有了船，有了马车，有了汽车，有了火车，有了飞机。<br>  路連接着家与前方，人们借着路，向前流浪。流浪不仅出于天性，也出于命运，是命运把人抛到了路上——形而上一点地说。四野茫茫，八面空空，眼前与心中，只剩下一条通往前方的路。<br>                                                                                                        –《读者》文摘</p>
+        <p>我们在电视上，总是看见美洲荒原或者非洲荒原上动物大迁徙的宏大场面：它们不停地奔跑着，翻过一道道山，穿过一片片戈壁滩，游过一条条河流。其间，不时遭到猛兽的袭击与追捕，或摔死于山崖，或淹死于激流。然而，任何阻拦与艰险，都不能阻挡这声势浩大、撼动人心的迁徙。前方在召唤着它们，它们只有奋蹄挺进。其实，人类的祖先也在这迁徙中度过了漫长的光阴。<br>  外面有一个广大无边的世界。这个世界充满艰辛和危险，然而又丰富多彩，富有刺激性，它总在诱惑着人们走出家门。人会在闯荡世界之中获得生命的满足，所以人的内心总在呐喊：走啊走!<br>  人的眼中、心里，总有一个前方。前方的情景并不明确，朦胧如雾中之月，闪烁如水中之花。这种不确定性，反而助长了一些人对前方的幻想。前方使他们兴奋，使他们行动，使他们陷入如痴如醉的状态。<br>  他们仿佛从苍茫的前方，听到了呼唤他们往前的钟声和激动人心的鼓乐。他们不知疲倦地走着。<br>  因此，这世界上就有了路。为了快速地走向前方和能走向更远的地方，就有了船，有了马车，有了汽车，有了火车，有了飞机。<br>  路連接着家与前方，人们借着路，向前流浪。流浪不仅出于天性，也出于命运，是命运把人抛到了路上——形而上一点地说。四野茫茫，八面空空，眼前与心中，只剩下一条通往前方的路。<br>                                                                                                        - -《读者》文摘</p>
 <img src="/2022/01/25/myfirstblog/under.jpg" class>
 
 

@@ -6,17 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022/1 | Hexo</title>
+  <title>tomcat的搭建 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This is a blog in order to record my learning and growth.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2022/01/index.html">
+  <meta name="description" content="Tomcat 的安装 在使用 tomcat 安装之前，需要下载 JDK 和 tomcat 的安装包。JDK 下载网站： https:&#x2F;&#x2F;www.oracle.com&#x2F;java&#x2F;technologies&#x2F;downloads&#x2F;java8Tomcat 下载网站： https:&#x2F;&#x2F;www.cnblogs.com&#x2F;li150dan&#x2F;p&#x2F;12535067.html（tomcat 为 gz 文件） 第一步：环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tomcat的搭建">
+<meta property="og:url" content="http://example.com/2022/01/25/tomcat/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="This is a blog in order to record my learning and growth.">
+<meta property="og:description" content="Tomcat 的安装 在使用 tomcat 安装之前，需要下载 JDK 和 tomcat 的安装包。JDK 下载网站： https:&#x2F;&#x2F;www.oracle.com&#x2F;java&#x2F;technologies&#x2F;downloads&#x2F;java8Tomcat 下载网站： https:&#x2F;&#x2F;www.cnblogs.com&#x2F;li150dan&#x2F;p&#x2F;12535067.html（tomcat 为 gz 文件） 第一步：环境">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/01/25/tomcat/1.jpg">
+<meta property="og:image" content="http://example.com/2022/01/25/tomcat/2.jpg">
+<meta property="og:image" content="http://example.com/2022/01/25/tomcat/3.jpg">
+<meta property="og:image" content="http://example.com/2022/01/25/tomcat/4.jpg">
+<meta property="og:image" content="http://example.com/2022/01/25/tomcat/5.jpg">
+<meta property="og:image" content="http://example.com/2022/01/25/tomcat/6.jpg">
+<meta property="og:image" content="http://example.com/2022/01/25/tomcat/7.jpg">
+<meta property="og:image" content="http://example.com/2022/01/25/tomcat/8.jpg">
+<meta property="og:image" content="http://example.com/2022/01/25/tomcat/9.jpg">
+<meta property="og:image" content="http://example.com/2022/01/25/tomcat/10.jpg">
+<meta property="article:published_time" content="2022-01-25T12:03:41.000Z">
+<meta property="article:modified_time" content="2022-01-25T12:25:20.847Z">
 <meta property="article:author" content="时学桐">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/01/25/tomcat/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,103 +163,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-tomcat" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      tomcat的搭建
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/01/25/tomcat/" class="archive-article-date">
+
+        
+        <a href="/2022/01/25/tomcat/" class="archive-article-date">
   	<time datetime="2022-01-25T12:03:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/01/25/tomcat/">tomcat的搭建</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Tomcat 的安装 在使用 tomcat 安装之前，需要下载 JDK 和 tomcat 的安装包。<br>JDK 下载网站： <a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/java8">https://www.oracle.com/java/technologies/downloads/java8</a><br>Tomcat 下载网站： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/li150dan/p/12535067.html">https://www.cnblogs.com/li150dan/p/12535067.html</a><br>（tomcat 为 gz 文件）</p>
+<p>第一步：环境的配置<br>首先安装JDK，安装jdk之前需要卸载当前系统预载的 openjava，命令为 yum remove openJava xxx ,因为 jdk 在官网下载的是一个二进制报文，解压之后不需要做什么操作， 只需要记住存放在那个目录即可，接着配置环境变量，vim /etc/profile。<br>unset i     #交互执行<br>unset -f pathmunge    #pathmunge是个函数<br>export JAVA_HOME=/usr/local/java/jdk1.8.0_221   #jdk放置目录<br>export JRE_HOME=${JAVA_HOME}/jre<br>export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib:$CLASSPATH<br>export JAVA_PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin:${CATALINA_HOME}/bin<br>export PATH=$PATH:${JAVA_PATH}:$PATH</p>
+<img src="/2022/01/25/tomcat/1.jpg" class>
+<p>配置完成后source /etc/profile</p>
+<p>卸载系统预载java</p>
+<img src="/2022/01/25/tomcat/2.jpg" class>
+<p>查看安装的java</p>
+<img src="/2022/01/25/tomcat/3.jpg" class>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>第二步：安装 Tomcat</p>
+<p>首先解压 tomcat 的安装包，记住 tomcat 解压后的位置，之后配置环境变量，<br>vim /etc/profile<br>export CATALINA_HOME=/usr/local/tomcat #tomcat放置目录 (tomcat是解压后重命名后的文件夹，根据实际情况写)</p>
+<img src="/2022/01/25/tomcat/4.jpg" class>
 
+<p>同样，调用环境变量：source /etc/profile<br>这样，基本就已经安装完成了，接下来进入tomcat的bin目录，给./startup.sh执行权限</p>
+<img src="/2022/01/25/tomcat/5.jpg" class>
+<p>接着，启动！  ./startip.sh</p>
+<img src="/2022/01/25/tomcat/6.jpg" class>
+<p>在浏览器中输入：localhost:8080即可</p>
+<img src="/2022/01/25/tomcat/7.jpg" class>
+<p>若想更改登录域名或者端口可在tomcat目录中的conf目录下中找到server.xml修改即可</p>
+<img src="/2022/01/25/tomcat/8.jpg" class>
+<p>修改端口：</p>
+<img src="/2022/01/25/tomcat/9.jpg" class>
+<p>修改域名：</p>
+<img src="/2022/01/25/tomcat/10.jpg" class>
+
+<p>还有其他基本操作基本就是在server.xml文件中操作或者webapps上操作。</p>
+<p>END</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/01/25/tomcat/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/01/25/%E5%8D%81%E5%85%AB/" class="archive-article-date">
-  	<time datetime="2022-01-25T09:14:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/01/25/%E5%8D%81%E5%85%AB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">十八</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/01/25/%E5%8D%81%E5%85%AB/">十八</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/01/25/myfirstblog/" class="archive-article-date">
-  	<time datetime="2022-01-25T01:48:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/01/25/myfirstblog/">《总有一个前方》</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -269,8 +362,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
